@@ -32,8 +32,9 @@ if (app.Environment.IsDevelopment())
 
 app.MapIdentityApi<User>();
 
-app.UseHttpsRedirection();
+app.MapGet("/helloworld", () => "Hello World!")
+    .WithName("HelloWorld").RequireAuthorization();
 
-app.UseAuthorization();
+app.UseHttpsRedirection();
 
 app.Run();
